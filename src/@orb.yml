@@ -1,0 +1,5 @@
+version: 2.1
+
+description: |
+  CircleCI orb for receiving encouragement via Slack when you push a commit.
+  https://github.com/KateCatlin/encouragement-orb
