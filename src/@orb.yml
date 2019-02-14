@@ -1,8 +1,23 @@
 version: 2.1
 
 description: |
-  CircleCI orb for receiving encouragement via Slack when you push a commit.
+  Receive encouragement when you push a commit.
+  Current functionality will slack you a link to a puppy picture to look at while your CircleCI pipeline runs.
   https://github.com/KateCatlin/encouragement-orb
+
+examples: 
+  notify-with-puppies:
+    description: When you'd rather look at a puppy picture than watch your pipeline run.
+    usage: 
+      version: 2.1
+      orbs: 
+        encouragement: katelabs/encouragement@1.0.0
+      jobs: 
+        job-name: 
+          docker:
+            - image: debian:stretch
+          steps:
+            - encouragement/notify-with-puppies
 
 orbs:
   slack: circleci/slack@1.1.0
@@ -11,7 +26,7 @@ commands:
   notify-with-puppies:
     description:
       "Send an encouraging alert at the end of a job if it fails. 
-      Must be the last step in a job."
+      Must be the last step in a job."      
     parameters:
       webhook:
         description: Enter either your Slack Webhook value (https://api.slack.com/incoming-webhooks#posting_with_webhooks) or use the CircleCI UI to add your token under the 'SLACK_WEBHOOK' env var.
