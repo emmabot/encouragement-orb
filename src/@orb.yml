@@ -24,4 +24,4 @@ commands:
     steps:
       - slack/notify: 
           color: '#FF5733'
-          message: 'Shipping is always positive! Celebrate here: https://openpuppies.com/'
+          message: 'Hey you pushed code! Go you! Take a break while your build runs and look at a puppy: https://openpuppies.com/'
