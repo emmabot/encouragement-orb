@@ -6,3 +6,22 @@ description: |
 
 orbs:
   slack: circleci/slack@1.1.0
+
+commands:
+  notify-with-puppies:
+    description:
+      "Send an encouraging alert at the end of a job if it fails. 
+      Must be the last step in a job."
+    parameters:
+      webhook:
+        description: Enter either your Slack Webhook value (https://api.slack.com/incoming-webhooks#posting_with_webhooks) or use the CircleCI UI to add your token under the 'SLACK_WEBHOOK' env var.
+        type: string
+        default: ${SLACK_WEBHOOK}
+      mentions:
+        description: A comma separated list of slack user IDs (https://stackoverflow.com/questions/40940327/what-is-the-simplest-way-to-find-a-slack-team-id-and-a-channel-id). No spaces. 
+        type: string
+        default: ""
+    steps:
+      - slack/notify: 
+          color: '#FF5733'
+          message: 'Shipping is always positive! Celebrate here: https://openpuppies.com/'
