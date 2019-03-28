@@ -1,2 +1,2 @@
-# encouragement-orb
-A CircleCI Orb to encourage you on the rainiest day. 
+# rickroll-orb
+A CircleCI Orb to rickroll you when builds fail. 
