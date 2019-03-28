@@ -1,31 +1,31 @@
 version: 2.1
 
 description: |
-  Receive encouragement when you push a commit.
-  Current functionality will slack you a link to a puppy picture to look at while your CircleCI pipeline runs.
-  https://github.com/KateCatlin/encouragement-orb
+  Rickroll when your build fails.
+  Current functionality will slack you a rickroll when your job fails.
+  https://github.com/emmabot/rickroll-orb
 
 examples: 
-  notify-with-puppies:
-    description: When you'd rather look at a puppy picture than watch your pipeline run.
+  nrickroll-on-fail:
+    description: Rickroll your slack channel on fail.
     usage: 
       version: 2.1
       orbs: 
-        encouragement: katelabs/encouragement@1.0.0
+        rickroll: emmabot/rickroll@1.0.0
       jobs: 
         job-name: 
           docker:
             - image: debian:stretch
           steps:
-            - encouragement/notify-with-puppies
+            - rickroll/rickroll-on-fail
 
 orbs:
   slack: circleci/slack@1.1.0
 
 commands:
-  notify-with-puppies:
+  rickroll-on-fail:
     description:
-      "Send an encouraging alert at the end of a job if it fails. 
+      "Send a rickroll at the end of a job if it fails. 
       Must be the last step in a job."      
     parameters:
       webhook:
@@ -39,4 +39,4 @@ commands:
     steps:
       - slack/notify: 
           color: '#FF5733'
-          message: 'Hey you pushed code! Go you! Take a break while your build runs and look at a puppy: https://openpuppies.com/'
+          message: 'Never gonna give you up / Never gonna let you down / Never gonna run around and desert you / Never gonna make you cry / Never gonna say goodbye https://www.youtube.com/watch?v=dQw4w9WgXcQ '
